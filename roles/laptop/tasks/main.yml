@@ -11,3 +11,16 @@
 - name: Set discard on /
   lineinfile: dest=/etc/fstab.bak backrefs=yes regexp='[^#](\S+\s+/\s+\S+\s+)((?!discard)\S+)(.*)' line='\1discard,\2'
   when: ssd|success
+
+- name: Check if X1 Carbon v2
+  shell: 'dmidecode | grep "Version: ThinkPad X1 Carbon 2nd"'
+  register: x1_carbon_v2
+  ignore_errors: True
+  changed_when: False
+- name: Set default sound card
+  lineinfile: dest=/etc/asound.conf create=yes line='{{ item }}'
+  when: x1_carbon_v2|success
+  with_items:
+    - defaults.ctl.card 1
+    - defaults.pcm.card 1
+    - defaults.timer.card 1
