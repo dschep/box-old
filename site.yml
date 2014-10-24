@@ -1,0 +1,9 @@
+---
+- hosts: all
+  connection: local
+  sudo: yes
+  roles:
+    - cli
+    - desktop
+    - laptop
+    - adblock

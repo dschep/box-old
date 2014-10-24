@@ -1,0 +1,10 @@
+- name: Install Desktop Environment
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - lubuntu-desktop
+    - awesome
+    - gnome-terminal
+    - xfce4-volumed
+    - xfce4-mixer
+    - gstreamer0.10-alsa
+    - ssh-askpass-gnome

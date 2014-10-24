@@ -1,0 +1,4 @@
+- include: browsers.yml
+- include: desktop_environment.yml
+- include: util.yml
+- include: coding.yml

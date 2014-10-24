@@ -1,0 +1,20 @@
+- name: Install Firefox Repo
+  apt_repository: repo='ppa:ubuntu-mozilla-security/ppa' state=present
+- name: Install Browsers
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - firefox
+    - chromium-browser
+- name: Install Flash
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - adobe-flashplugin
+    - pepperflashplugin-nonfree
+- name: Get Pepper Flash status (for Chromium)
+  shell: '[ "$(update-pepperflashplugin-nonfree --status|cut -d: -f2|uniq|wc -l)" -eq 1 ]'
+  register: pepper_flash_status
+  ignore_errors: True
+  changed_when: False
+- name: Update Pepper Flash Plugin (for Chromium)
+  command: update-pepperflashplugin-nonfree --install
+  when: pepper_flash_status|failed

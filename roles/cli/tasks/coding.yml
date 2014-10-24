@@ -1,0 +1,12 @@
+- name: Install CLI Editors/Seach/VCS/Diff Tools
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - vim
+    - ack-grep
+    - silversearcher-ag
+    - git
+
+- name: Install Python Tools
+  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  with_items:
+    - python-virtualenv

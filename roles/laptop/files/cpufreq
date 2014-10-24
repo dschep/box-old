@@ -1,0 +1,51 @@
+#!/bin/sh
+
+. "${PM_FUNCTIONS}"
+
+governorfiles='/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
+
+AC_GOVERNOR=${AC_GOVERNOR:-ondemand}
+BATTERY_GOVERNOR=${BATTERY_GOVERNOR:-powersave}
+
+help() {
+    cat <<EOF
+--------
+$0: cpufreq hook
+This hook controls what governor to use when on AC vs battery.
+
+It has 2 tuneable parameters: 
+AC_GOVERNOR = value for scaling_governor on AC.
+Defaults to ondemand
+
+BATTERY_GOVERNOR = value for scaling_governor on battery.
+Defaults to powersave
+
+EOF
+}
+
+#[ -w $VM/laptop_mode -a -w $VM/dirty_ratio ] || exit $NA
+
+write_governor() {
+    for f in $governorfiles; do
+	[ -w "$VM/$f" ] && echo $1 > "$f"
+    done
+}
+
+cpufreq_ac() {
+    write_governor $AC_GOVERNOR
+    echo "cpufreq set to $AC_GOVERNOR"
+}
+
+cpufreq_battery() {
+    write_governor $BATTERY_GOVERNOR
+    echo "cpufreq set to $BATTERY_GOVERNOR"
+}
+
+case $1 in
+    true) cpufreq_battery ;;
+    false) cpufreq_ac ;;
+    help) help;;
+    *) exit $NA ;;
+esac
+
+exit 0
