@@ -1,2 +1,13 @@
 - name: Setup power.d cpufreq hook
   copy: src=cpufreq dest=/etc/pm/power.d/cpufreq mode=755
+
+# NOTE: we're assuming / is on sda
+- name: Check if sda is an SSD
+  shell: 'grep 0 /sys/block/sda/queue/rotational'
+  register: ssd
+  ignore_errors: True
+  changed_when: False
+# NOTE: the regex only fails to match if discard is the first option
+- name: Set discard on /
+  lineinfile: dest=/etc/fstab.bak backrefs=yes regexp='[^#](\S+\s+/\s+\S+\s+)((?!discard)\S+)(.*)' line='\1discard,\2'
+  when: ssd|success
