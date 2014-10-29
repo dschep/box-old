@@ -5,4 +5,5 @@
     - inotify-tools
     - unrar
     - p7zip-full
+    - dtrx
     - htop
