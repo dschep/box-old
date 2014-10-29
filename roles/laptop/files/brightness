@@ -1,0 +1,47 @@
+#!/bin/sh
+
+. "${PM_FUNCTIONS}"
+
+brightnessfile='/sys/class/backlight/acpi_video0/brightness'
+
+AC_BRIGHTNESS=${AC_GOVERNOR:-15}
+BATTERY_BRIGHTNESS=${BATTERY_GOVERNOR:-13}
+
+help() {
+    cat <<EOF
+--------
+$0: brightness hook
+This hook controls display brightness to use when on AC vs battery.
+
+It has 2 tuneable parameters: 
+AC_BRIGHTNESS = value for brightness on AC.
+Defaults to 15
+
+BATTERY_BRIGHTNESS = value for brightness on battery.
+Defaults to 12
+
+EOF
+}
+
+write_brightness() {
+	[ -w "$brightnessfile" ] && echo $1 > "$brightnessfile"
+}
+
+brightness_ac() {
+    write_brightness $AC_BRIGHTNESS
+    echo "brightness set to $AC_BRIGHTNESS"
+}
+
+brightness_battery() {
+    write_brightness $BATTERY_BRIGHTNESS
+    echo "brightness set to $BATTERY_BRIGHTNESS"
+}
+
+case $1 in
+    true) brightness_battery ;;
+    false) brightness_ac ;;
+    help) help;;
+    *) exit $NA ;;
+esac
+
+exit 0
