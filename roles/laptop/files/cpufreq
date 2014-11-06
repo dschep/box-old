@@ -5,7 +5,7 @@
 governorfiles='/sys/devices/system/cpu/cpu*/cpufreq/scaling_governor'
 
 AC_GOVERNOR=${AC_GOVERNOR:-ondemand}
-BATTERY_GOVERNOR=${BATTERY_GOVERNOR:-powersave}
+BATTERY_GOVERNOR=${BATTERY_GOVERNOR:-conservative}
 
 help() {
     cat <<EOF
@@ -18,7 +18,7 @@ AC_GOVERNOR = value for scaling_governor on AC.
 Defaults to ondemand
 
 BATTERY_GOVERNOR = value for scaling_governor on battery.
-Defaults to powersave
+Defaults to conservative
 
 EOF
 }
