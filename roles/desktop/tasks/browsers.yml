@@ -5,6 +5,10 @@
   with_items:
     - firefox
     - chromium-browser
+- name: Enable Parter Repo
+  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner'
+- name: Enable Extra Repo
+  apt_repository: repo='deb http://extras.ubuntu.com/ubuntu trusty main'
 - name: Install Flash
   apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
   with_items:
