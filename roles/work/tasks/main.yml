@@ -1,0 +1,10 @@
+- name: Make /etc/hosts.d
+  file: path=/etc/hosts.d state=directory
+  register: made_hosts_d
+- name: Move default host file
+  copy: src=/etc/hosts dest=/etc/hosts.d/default
+  when: made_hosts_d|changed
+- name: Make advisor-local hosts.d file
+  lineinfile: dest=/etc/hosts.d/advisor line='33.33.33.11 advisor-local.socialcodedev.com'
+- name: Combine host files
+  assemble: src=/etc/hosts.d dest=/etc/hosts backup=yes mode=644
