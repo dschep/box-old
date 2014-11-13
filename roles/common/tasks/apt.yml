@@ -1,3 +1,8 @@
+- name: Install apt_repository dep
+  apt: pkg={{ item }}
+  with_items:
+    - python-pycurl
+
 - name: Enable Parter Repo
   apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner'
 
