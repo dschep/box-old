@@ -1,5 +1,5 @@
 - name: Install Various CLI Tools
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - dos2unix
     - inotify-tools
@@ -9,6 +9,6 @@
     - htop
 
 - name: Install encfs
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - encfs

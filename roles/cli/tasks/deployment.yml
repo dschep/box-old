@@ -1,12 +1,12 @@
 - name: Install Deploy Tool Deps
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - python-pycurl
 - name: install Deploy Tools Repo Key
   apt_key: url=https://toolbelt.heroku.com/apt/release.key validate_certs=no
 - name: Install Deploy Tools Repo
-  apt_repository: repo='deb http://toolbelt.heroku.com/ubuntu ./' state=present
+  apt_repository: repo='deb http://toolbelt.heroku.com/ubuntu ./'
 - name: Install Deploy Tools
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - heroku-toolbelt

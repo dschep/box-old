@@ -1,16 +1,13 @@
 - name: Install Firefox Repo
-  apt_repository: repo='ppa:ubuntu-mozilla-security/ppa' state=present
+  apt_repository: repo='ppa:ubuntu-mozilla-security/ppa'
 - name: Install Browsers
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - firefox
     - chromium-browser
-- name: Enable Parter Repo
-  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner'
-- name: Enable Extra Repo
-  apt_repository: repo='deb http://extras.ubuntu.com/ubuntu trusty main'
+
 - name: Install Flash
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - adobe-flashplugin
     - pepperflashplugin-nonfree

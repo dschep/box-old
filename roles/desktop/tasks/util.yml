@@ -1,16 +1,16 @@
 - name: Install Password Manager
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - keepassx
 
 - name: Install Various CLI/GUI Tools
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - xclip
     - imagemagick
 
 - name: Install GUI Tools
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - parcellite
     - gimp

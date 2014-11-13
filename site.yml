@@ -3,6 +3,7 @@
   connection: local
   sudo: yes
   roles:
+    - common
     - cli
     - desktop
     - laptop

@@ -1,0 +1,11 @@
+- name: Enable Parter Repo
+  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner'
+
+- name: Enable Extra Repo
+  apt_repository: repo='deb http://extras.ubuntu.com/ubuntu trusty main'
+
+- name: Update package cache
+  apt: update_cache=yes
+
+- name: Upgrade all packages
+  apt: upgrade=dist

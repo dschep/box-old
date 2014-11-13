@@ -29,6 +29,6 @@
     - defaults.timer.card 1
 
 - name: Install laptop packages
-  apt: pkg={{ item }} state=latest update_cache=yes cache_valid_time=3600
+  apt: pkg={{ item }}
   with_items:
     - acpi
