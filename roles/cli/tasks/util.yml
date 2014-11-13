@@ -7,6 +7,7 @@
     - p7zip-full
     - dtrx
     - htop
+    - sshuttle
 
 - name: Install encfs
   apt: pkg={{ item }}
