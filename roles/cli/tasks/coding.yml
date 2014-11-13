@@ -10,3 +10,9 @@
   apt: pkg={{ item }}
   with_items:
     - python-virtualenv
+
+- name: Install Android Tools
+  apt: pkg={{ item }}
+  with_items:
+    - android-tools-adb
+    - android-tools-fastboot
