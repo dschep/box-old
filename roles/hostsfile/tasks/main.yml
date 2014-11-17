@@ -4,7 +4,9 @@
 - name: Move default host file
   copy: src=/etc/hosts dest=/etc/hosts.d/default
   when: made_hosts_d|changed
-- name: Download someonewhocares' hostfile
-  get_url: url=http://someonewhocares.org/hosts/hosts dest=/etc/hosts.d/someonewhocares force=yes
+
+- include: 'adblock.yml'
+- include: 'work.yml' 
+
 - name: Combine host files
   assemble: src=/etc/hosts.d dest=/etc/hosts backup=yes mode=644

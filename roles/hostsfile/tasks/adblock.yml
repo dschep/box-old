@@ -1,0 +1,2 @@
+- name: Download someonewhocares' hostfile
+  get_url: url=http://someonewhocares.org/hosts/hosts dest=/etc/hosts.d/someonewhocares force=yes

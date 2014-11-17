@@ -1,0 +1,2 @@
+- name: Make advisor-local hosts.d file
+  lineinfile: dest=/etc/hosts.d/advisor line='33.33.33.11 advisor-local.socialcodedev.com' create=yes
