@@ -8,6 +8,7 @@
     - dtrx
     - htop
     - sshuttle
+    - ethtool
 
 - name: Install encfs
   apt: pkg={{ item }}
