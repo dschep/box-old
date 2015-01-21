@@ -10,6 +10,9 @@
   apt: pkg={{ item }}
   with_items:
     - python-virtualenv
+    - virtualenvwrapper
+    - python-pip
+    - python-dev
 
 - name: Install Android Tools
   apt: pkg={{ item }}
