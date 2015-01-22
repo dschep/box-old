@@ -12,7 +12,7 @@
   changed_when: False
 # NOTE: the regex only fails to match if discard is the first option
 - name: Set discard on /
-  lineinfile: dest=/etc/fstab.bak backrefs=yes regexp='[^#](\S+\s+/\s+\S+\s+)((?!discard)\S+)(.*)' line='\1discard,\2'
+  lineinfile: dest=/etc/fstab backup=yes backrefs=yes regexp='[^#](\S+\s+/\s+\S+\s+)((?!discard)\S+)(.*)' line='\1discard,\2'
   when: ssd|success
 
 - name: Check if X1 Carbon v2
