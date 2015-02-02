@@ -9,6 +9,7 @@
     - htop
     - sshuttle
     - ethtool
+    - nmap
 
 - name: Install encfs
   apt: pkg={{ item }}
