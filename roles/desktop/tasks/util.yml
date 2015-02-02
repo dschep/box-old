@@ -9,10 +9,15 @@
     - xclip
     - imagemagick
 
+- name: media repo
+  apt_repository: repo='ppa:mc3man/trusty-media'
+
 - name: Install GUI Tools
   apt: pkg={{ item }}
   with_items:
     - parcellite
     - gimp
     - gnome-mplayer
+    - ubuntu-restricted-extras
+    - gstreamer0.10-ffmpeg
     - skype
