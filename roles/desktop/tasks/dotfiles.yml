@@ -3,4 +3,6 @@
   copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
   with_items:
     - config/awesome/
+    - config/parcellite/
     - xsessionrc
+    - gtkrc-2.0
