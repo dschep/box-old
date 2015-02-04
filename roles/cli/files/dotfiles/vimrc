@@ -1,0 +1,221 @@
+set nocompatible
+filetype off
+
+"""
+""" vundle
+"""
+let vundleInstalled=0
+if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
+    echo "Installing Vundle"
+    echo ""
+    silent !mkdir -p ~/.vim/bundle
+    silent !git clone https://github.com/gmarik/Vundle.vim ~/.vim/bundle/Vundle.vim
+    let vundleInstalled=1
+endif
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'tpope/vim-fugitive'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/JSON.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'gregsexton/MatchTag'
+Plugin 'scrooloose/syntastic'
+Plugin 'jnurmine/Zenburn'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ciaranm/detectindent'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'klen/python-mode'
+
+call vundle#end()
+
+if vundleInstalled == 1
+    echo "Installing Vundle plugins"
+    echo ""
+    PluginInstall
+endif
+
+"""
+""" Key mappings
+"""
+" esc-esc in normal mode to clear search highlight
+nnoremap <ESC><ESC> :noh<CR>
+" bind F2 to toggle paste mode
+set pastetoggle=<F2>
+" toggle line numberings with F3
+nnoremap <F3> :set number!<CR>
+" copy and paste to system clipboard
+noremap <A-y> "+y
+noremap <A-p> "+p
+noremap <A-P> "+P
+" make F5 save and execute script
+"   on unix: based off of its shebang line
+"   on windows: by opening it (works for .py etc)
+if has("unix")
+    nnoremap <F5> :exe("if match(getline(1),'^\#!')==0\nw\|exe('!'.getline(1)[2:].' %')\nen")<CR>
+elseif has("win32")
+    nnoremap <F5> :w\|!%<CR>
+endif
+" ctrl h/l to change tabs
+map <C-j> :MBEbp<cr>
+map <C-k> :MBEbn<cr>
+
+
+"""
+""" Behaviour
+"""
+" normal backspace
+set backspace=indent,eol,start
+" mouse support
+if exists('+mouse')
+    set mouse=a
+endif
+" regex magic
+set magic
+" use incremental search
+set incsearch
+" quickly move cursor to matching bracket when added
+set showmatch
+
+
+"""
+""" Appearance
+"""
+" 256 colors
+set t_Co=256
+" Syntax hilighting
+syn on
+" more syntax for python
+let python_highlight_all = 1
+" hilight search results
+set hlsearch
+" set terminal title
+set title
+" always show status line (for vim-powerline)
+set laststatus=2
+" don't show mode (shown in vim-powerline)
+set noshowmode
+" Zenburrnn
+colors zenburn
+" highlight current line
+set cursorline
+" highlight last column
+if exists('+colorcolumn')
+  set colorcolumn=+1
+endif
+
+
+"""
+""" File Options
+"""
+" full filetype detection
+filetype plugin indent on
+" use real tabs for makefiles
+au BufRead,BufNewFile Makefile,makefile,*.mk set noexpandtab
+" detect cuda files
+au BufRead,BufNewFile *.cu set ft=cuda
+" detect json files
+au BufRead,BufNewFile *.json set ft=json 
+" use modelines
+set modeline
+
+
+"""
+""" Text style options
+"""
+" 4 space tabs 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" disable mixing spaces and \t
+set softtabstop=0
+" set wrapping text width
+set textwidth=79
+
+
+"""
+""" Misc.
+"""
+set encoding=utf-8
+" add custom spellings
+if exists('+spellfile')
+    set spellfile=~/.vim/spellfile.add
+endif
+
+
+"""
+""" gui options
+"""
+if has("gui_running")
+    " get rid of fluff (menu & toolbar)
+    set guioptions-=m
+    set guioptions-=T
+endif
+" set fonts
+set guifont=Source\ Code\ Pro
+
+
+"""
+""" plugin options
+"""
+" ctrl-p find version control root:
+let g:ctrlp_working_path_mode = ''
+" ctrl-p save cache
+let g:ctrlp_clear_cache_on_exit = 0
+" ctrl-p much smaller max depth
+let g:ctrlp_max_depth = 10
+" ctrl-p <c-y> opens tab
+let g:ctrlp_open_new_file = 'r'
+" auto detect indent type
+autocmd BufReadPost * :DetectIndent
+" prefer spaces
+let g:detectindent_preferred_expandtab = 1
+" use 4 spaces
+let g:detectindent_preferred_indent = 4
+
+""" Python
+""" Add the virtualenv's site-packages to vim path
+""" taken from mattcaldwell/dotfiles
+python << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+" ignore pyc
+set wildignore+=*.pyc
+
+
+"""
+""" ENV customization
+"""
+set cdpath=,~/code
+
+
+"""
+""" MiniBufExpl colors
+"""
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
+
+
+"""
+""" disable some pymode defaults
+"""
+let g:pymode_options=0
+let g:pymode_lint_cwindow=0
+let g:pymode_rope_completion=0
+" all folds open by default
+set foldlevel=99
