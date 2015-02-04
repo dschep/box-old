@@ -9,3 +9,6 @@
     - gstreamer0.10-alsa
     - ssh-askpass-gnome
     - parcellite
+
+- name: set default terminal (gnome-terminal)
+  alternatives: name=x-terminal-emulator path=/usr/bin/gnome-terminal
