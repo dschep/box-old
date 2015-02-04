@@ -12,7 +12,6 @@
 - name: Install GUI Tools
   apt: pkg={{ item }}
   with_items:
-    - parcellite
     - gimp
     - gnome-mplayer
     - ubuntu-restricted-extras
