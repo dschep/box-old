@@ -1,17 +1,17 @@
 - name: Install Various CLI Tools
   apt: pkg={{ item }}
   with_items:
+    # basic file tools
     - dos2unix
     - inotify-tools
+    # compression tools
     - unrar
     - p7zip-full
     - dtrx
+    # system tools
     - htop
-    - sshuttle
+    # network
     - ethtool
     - nmap
-
-- name: Install encfs
-  apt: pkg={{ item }}
-  with_items:
+    # disc encryption
     - encfs
