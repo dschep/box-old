@@ -12,3 +12,20 @@
 
 - name: set default terminal (gnome-terminal)
   alternatives: name=x-terminal-emulator path=/usr/bin/gnome-terminal
+
+- name: ensure user font dir
+  sudo: no
+  file: path=~/.fonts state=directory
+- name: install Source Code Pro font
+  sudo: no
+  copy: src=fonts/{{ item }} dest=~/.fonts/{{ item }}
+  with_items:
+    - SourceCodePro-Black.otf
+    - SourceCodePro-Bold.otf
+    - SourceCodePro-ExtraLight.otf
+    - SourceCodePro-Light.otf
+    - SourceCodePro-Medium.otf
+    - SourceCodePro-Regular.otf
+    - SourceCodePro-Semibold.otf
+  notify:
+    - rebuild font cache

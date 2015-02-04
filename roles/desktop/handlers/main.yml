@@ -1,0 +1,3 @@
+- name: rebuild font cache
+  sudo: no
+  command: fc-cache
