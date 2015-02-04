@@ -7,6 +7,7 @@
 
 - name: Install Firefox ({{ ff_dl_product }})
   unarchive: src={{ ff_download.dest }} dest={{ ff_dest }}
+#unarchive: src={{ ff_download.dest }} dest={{ ff_dest }} group=sudo mode='g+w'
   when: ff_download.changed
   register: ff_install
 
