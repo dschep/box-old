@@ -1,50 +1,29 @@
-- name: set zenburn color scheme
+- name: set zenburn colors (gnome-terminal)
   sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/palette
-    string: "#3F3F3F3F3F3F:#CCCC93939393:#7F7F9F9F7F7F:#E3E3CECEABAB:#DFDFAFAF8F8F:#CCCC93939393:#8C8CD0D0D3D3:#DCDCDCDCCCCC:#3F3F3F3F3F3F:#CCCC93939393:#7F7F9F9F7F7F:#E3E3CECEABAB:#DFDFAFAF8F8F:#CCCC93939393:#8C8CD0D0D3D3:#DCDCDCDCCCCC"
+  gconftool-2: key={{  item.key }} string={{ item.string|default(omit) }} bool={{ item.bool|default(omit) }}
+  with_items:
+    - key: /apps/gnome-terminal/profiles/Default/palette
+      string: "#3F3F3F3F3F3F:#CCCC93939393:#7F7F9F9F7F7F:#E3E3CECEABAB:#DFDFAFAF8F8F:#CCCC93939393:#8C8CD0D0D3D3:#DCDCDCDCCCCC:#3F3F3F3F3F3F:#CCCC93939393:#7F7F9F9F7F7F:#E3E3CECEABAB:#DFDFAFAF8F8F:#CCCC93939393:#8C8CD0D0D3D3:#DCDCDCDCCCCC"
+    - key: /apps/gnome-terminal/profiles/Default/background_color
+      string: "#3F3F3F3F3F3F"
+    - key: /apps/gnome-terminal/profiles/Default/foreground_color
+      string: "#DCDCDCDCCCCC"
+    - key: /apps/gnome-terminal/profiles/Default/bold_color
+      string: "#E3E3CECEABAB"
+    - key: /apps/gnome-terminal/profiles/Default/bold_color_same_as_fg
+      bool: false
+    - key: /apps/gnome-terminal/profiles/Default/use_theme_colors
+      bool: false
 
-- name: set highlighted color to be different from foreground-color
+- name: use Source Code Pro (gnome-terminal)
   sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/bold_color_same_as_fg
-    bool: false
+  gconftool-2: key={{  item.key }} string="{{ item.string|default(omit) }}" bool={{ item.bool|default(omit) }}
+  with_items:
+    - key: /apps/gnome-terminal/profiles/Default/use_system_font
+      bool: false
+    - key: /apps/gnome-terminal/profiles/Default/font
+      string: 'Source Code Pro 10'
 
-- name: set background color
+- name: hide menubar by default (gnome-terminal)
   sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/background_color
-    string: "#3F3F3F3F3F3F"
-- name: set foreground color
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/foreground_color
-    string: "#DCDCDCDCCCCC"
-- name: set highlight color
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/bold_color
-    string: "#E3E3CECEABAB"
-
-- name: make sure the profile is set to not use theme colors
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/use_theme_colors
-    bool: false
-
-- name: don't use system font 
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/use_system_font
-    bool: false
-- name: set font to source code pro
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/font
-    string: "Source Code Pro 10"
-
-- name: hide menubar by default
-  sudo: no
-  gconftool-2:
-    key: /apps/gnome-terminal/profiles/Default/default_show_menubar
-    bool: false
+  gconftool-2: key=/apps/gnome-terminal/profiles/Default/default_show_menubar bool=false
