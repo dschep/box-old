@@ -23,3 +23,13 @@
 
 - name: set default browser (firefox-mozilla)
   alternatives: name=x-www-browser path=/usr/bin/firefox-mozilla
+
+
+- name: media repo (FF h.264 support)
+  apt_repository: repo='ppa:mc3man/trusty-media'
+
+- name: Install ff h.264 support
+  apt: pkg={{ item }}
+  with_items:
+    - gstreamer0.10-ffmpeg
+    - ubuntu-restricted-extras
