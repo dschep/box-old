@@ -1,0 +1,6 @@
+# source .bashrc if it exists
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM

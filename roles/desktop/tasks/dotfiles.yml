@@ -1,0 +1,6 @@
+- name: dotfiles
+  sudo: no
+  copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
+  with_items:
+    - config/awesome/
+    - xsessionrc
