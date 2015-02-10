@@ -47,14 +47,12 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which will hold all screen tags.
 tags = {
-  names  = { "1:dev-www", "2:dev", "3:scr", "4:scr", "5:scr", "6:scr", "7:chat", "8:work", "9:prsnl" },
-  layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1],
-             layouts[1], layouts[10], layouts[1], layouts[1]
-}}
+  names  = { "1:dev-www", "2:dev", "3:scr", "4:scr", "5:scr", "6:scr", "7:chat", "8:work", "9:prsnl" }
+}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
     if s == 1 then
-        tags[s] = awful.tag(tags.names, s, tags.layout)
+        tags[s] = awful.tag(tags.names, s, layouts[1])
     else
         tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
    end
@@ -338,8 +336,8 @@ awful.rules.rules = {
        properties = { tag = tags[1][2] } },
      { rule = { class = "workterm" },
        callback = awful.client.setslave },
-     -- chat browser apps on 7
-     { rule_any = { instance = {"celerity.hipchat.com__chat", "socialcode.hipchat.com__chat"} },
+     -- chat apps on 7
+     { rule = { class = "Gajim" },
        properties = { tag = tags[1][7] } },
      -- work browser on 8
      { rule = { instance = "Chromium-browser" },
