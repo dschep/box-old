@@ -1,9 +1,9 @@
 #!/bin/bash
 if ! type -p ansible-playbook &> /dev/null ; then
-    sudo echo apt-get install software-properties-common
-    sudo echo apt-add-repository ppa:ansible/ansible
-    sudo echo apt-get update
-    sudo echo apt-get install ansible
+    sudo apt-get install software-properties-common
+    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt-get update
+    sudo apt-get install ansible
 fi
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ansible-playbook -K -i $DIR/hosts $DIR/site.yml
