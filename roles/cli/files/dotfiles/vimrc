@@ -116,8 +116,6 @@ endif
 filetype plugin indent on
 " use real tabs for makefiles
 au BufRead,BufNewFile Makefile,makefile,*.mk set noexpandtab
-" detect cuda files
-au BufRead,BufNewFile *.cu set ft=cuda
 " detect json files
 au BufRead,BufNewFile *.json set ft=json 
 " use modelines
