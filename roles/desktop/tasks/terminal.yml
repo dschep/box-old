@@ -15,6 +15,15 @@
     - key: /apps/gnome-terminal/profiles/Default/use_theme_colors
       bool: false
 
+- name: set hotkeys (gnome-terminal)
+  sudo: no
+  gconftool-2: key={{  item.key }} string={{ item.string|default(omit) }} bool={{ item.bool|default(omit) }}
+  with_items:
+    - key: /apps/gnome-terminal/keybindings/next_tab
+      string: "<Ctrl>k"
+    - key: /apps/gnome-terminal/keybindings/prev_tab
+      string: "<Ctrl>j"
+
 - name: use Source Code Pro (gnome-terminal)
   sudo: no
   gconftool-2: key={{  item.key }} string="{{ item.string|default(omit) }}" bool={{ item.bool|default(omit) }}
