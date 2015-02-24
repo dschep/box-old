@@ -1,3 +1,6 @@
+# black wall
+xsetroot -bg black
+
 # Daemons
 eval $(ssh-agent)
 blueman-applet &

@@ -1,8 +1,10 @@
+- name: add qtile repo
+  apt_repository: repo='ppa:tycho-s/ppa'
 - name: Install Desktop Environment
   apt: pkg={{ item }}
   with_items:
     - lubuntu-desktop
-    - awesome
+    - qtile
     - gnome-terminal
     - xfce4-volumed
     - xfce4-mixer
