@@ -2,7 +2,7 @@
   sudo: no
   copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
   with_items:
-    - config/awesome/
+    - config/qtile/
     - config/parcellite/
     - xsessionrc
     - gtkrc-2.0
