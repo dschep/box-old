@@ -1,4 +1,5 @@
 # Daemons
+eval $(ssh-agent)
 blueman-applet &
 nm-applet &
 xfce4-volumed &
