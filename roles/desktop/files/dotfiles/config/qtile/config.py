@@ -127,7 +127,7 @@ def grouper(window):
     for instances, classes, group, float_ in rules:
         if instance in instances or class_ in classes:
             if group is not None:
-                window.togroup(group)
+                window.togroup(str(group))
             window.floating = float_
 
 
