@@ -25,7 +25,7 @@ keys = [
 
     # Toggle between different layouts as defined below
     Key([mod], 'space', lazy.nextlayout()),
-    Key([mod, 'shift'], 'space', lazy.nextlayout()),
+    Key([mod, 'shift'], 'space', lazy.prevlayout()),
 
     # Close window
     Key([mod, 'shift'], 'c', lazy.window.kill()),
