@@ -3,6 +3,7 @@
   copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
   with_items:
     - i3/
+    - i3status.conf
     - config/parcellite/
     - xsessionrc
     - gtkrc-2.0

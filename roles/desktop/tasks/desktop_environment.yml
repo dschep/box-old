@@ -1,3 +1,7 @@
+- name: add i3 repo
+  apt_repository: repo='deb http://debian.sur5r.net/i3/ trusty universe'
+- name: install i3 repo key
+  apt: pkg=sur5r-keyring force=yes
 - name: Install Desktop Environment
   apt: pkg={{ item }}
   with_items:

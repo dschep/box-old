@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font pango:Source Code Pro 10
+font pango:Source Code Pro Light 9
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
@@ -151,3 +151,22 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/dschep/.i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/dschep/.i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 7; append_layout /home/dschep/.i3/workspace-7.json'"
+exec --no-startup-id "i3-msg 'workspace 8; append_layout /home/dschep/.i3/workspace-8.json'"
+exec --no-startup-id "i3-msg 'workspace 9; append_layout /home/dschep/.i3/workspace-9.json'"
+
+exec firefox-mozilla
+exec chromium-browser
+exec chromium-browser --user-data-dir=/home/dschep/.config/chromium-dev
+exec chromium-browser --app=http://celerity.hipchat.com/chat --user-data-dir=$HOME/.config/chromium-hipchat-celerity
+exec chromium-browser --app=http://socialcode.hipchat.com/chat --user-data-dir=$HOME/.config/chromium-hipchat-socialcode
+
+exec gnome-terminal --disable-factory --class=workterm
+exec gnome-terminal --disable-factory --class=workterm
+exec gvim --class=workvim
+
+exec synology-cloud-station start
