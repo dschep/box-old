@@ -2,7 +2,7 @@
   apt: pkg={{ item }}
   with_items:
     - lubuntu-desktop
-    - awesome
+    - i3
     - gnome-terminal
     - xfce4-volumed
     - xfce4-mixer
