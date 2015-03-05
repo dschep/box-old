@@ -98,7 +98,7 @@ set $WS6 6
 set $WS7 7 cht
 set $WS8 8 wrk
 set $WS9 9 prs
-set $WS1010
+set $WS10 10
 
 # switch to workspace
 bindsym $mod+1 workspace number $WS1
