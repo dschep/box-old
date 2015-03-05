@@ -170,3 +170,7 @@ exec gnome-terminal --disable-factory --class=workterm
 exec gvim --class=workvim
 
 exec synology-cloud-station start
+exec blueman-applet
+exec nm-applet
+exec xfce4-power-manager
+exec parcellite

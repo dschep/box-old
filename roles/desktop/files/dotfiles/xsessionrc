@@ -1,12 +1,12 @@
 # Daemons
 eval $(ssh-agent)
-blueman-applet &
-nm-applet &
+#blueman-applet &
+#nm-applet &
 xfce4-volumed &
-xfce4-power-manager
+#xfce4-power-manager
 light-locker &
 syndaemon -i1 -k -d
-parcellite &
+#parcellite &
 #synology-cloud-station start
 
 # touchpad options
