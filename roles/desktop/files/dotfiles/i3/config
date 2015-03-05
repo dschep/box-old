@@ -89,29 +89,40 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $WS1 1 dbg
+set $WS2 2 dev
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7 cht
+set $WS8 8 wrk
+set $WS9 9 prs
+set $WS1010
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace number $WS1
+bindsym $mod+2 workspace number $WS2
+bindsym $mod+3 workspace number $WS3
+bindsym $mod+4 workspace number $WS4
+bindsym $mod+5 workspace number $WS5
+bindsym $mod+6 workspace number $WS6
+bindsym $mod+7 workspace number $WS7
+bindsym $mod+8 workspace number $WS8
+bindsym $mod+9 workspace number $WS9
+bindsym $mod+0 workspace number $WS10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace number $WS1
+bindsym $mod+Shift+2 move container to workspace number $WS2
+bindsym $mod+Shift+3 move container to workspace number $WS3
+bindsym $mod+Shift+4 move container to workspace number $WS4
+bindsym $mod+Shift+5 move container to workspace number $WS5
+bindsym $mod+Shift+6 move container to workspace number $WS6
+bindsym $mod+Shift+7 move container to workspace number $WS7
+bindsym $mod+Shift+8 move container to workspace number $WS8
+bindsym $mod+Shift+9 move container to workspace number $WS9
+bindsym $mod+Shift+0 move container to workspace number $WS10
 
 # reload the configuration file
 bindsym $mod+Shift+r reload
@@ -153,11 +164,11 @@ bar {
 }
 
 
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/dschep/.i3/workspace-1.json'"
-exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/dschep/.i3/workspace-2.json'"
-exec --no-startup-id "i3-msg 'workspace 7; append_layout /home/dschep/.i3/workspace-7.json'"
-exec --no-startup-id "i3-msg 'workspace 8; append_layout /home/dschep/.i3/workspace-8.json'"
-exec --no-startup-id "i3-msg 'workspace 9; append_layout /home/dschep/.i3/workspace-9.json'"
+exec --no-startup-id "i3-msg 'workspace $WS1; append_layout /home/dschep/.i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace $WS2; append_layout /home/dschep/.i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace $WS7; append_layout /home/dschep/.i3/workspace-7.json'"
+exec --no-startup-id "i3-msg 'workspace $WS8; append_layout /home/dschep/.i3/workspace-8.json'"
+exec --no-startup-id "i3-msg 'workspace $WS9; append_layout /home/dschep/.i3/workspace-9.json'"
 
 exec firefox-mozilla
 exec chromium-browser
