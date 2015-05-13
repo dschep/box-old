@@ -5,6 +5,8 @@
     - ack-grep
     - silversearcher-ag
     - git
+    - httpie
+    - jq
 
 - name: Install Python Tools
   apt: pkg={{ item }}

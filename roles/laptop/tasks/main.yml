@@ -40,6 +40,7 @@
   apt: pkg={{ item }}
   with_items:
     - acpi
+    - powertop
 
 - name: Install VPN frontend
   apt: pkg={{ item }}
