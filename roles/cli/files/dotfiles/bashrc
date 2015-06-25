@@ -93,3 +93,4 @@ LP_USER_ALWAYS=0
 LP_SHOW_DIFF=0
 LP_SHORT_PATH=1
 . ~/.liquidprompt/liquidprompt
+PROMPT_COMMAND='_lp_set_prompt;echo -ne "\033]0;$USER@$HOSTNAME:${PWD/#$HOME/\~}\007"'

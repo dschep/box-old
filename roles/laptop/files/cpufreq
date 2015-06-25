@@ -39,6 +39,7 @@ cpufreq_ac() {
 cpufreq_battery() {
     write_governor $BATTERY_GOVERNOR
     echo "cpufreq set to $BATTERY_GOVERNOR"
+	powertop --autotune
 }
 
 case $1 in
