@@ -53,6 +53,9 @@ type -p dircolors > /dev/null && eval $(dircolors -b)
 alias today='date +%F'
 alias now="date +%FT%T"
 
+#.env utility
+alias dotenv='eval $(sed -e "s/^/export /" .env|tr "\n" ";")'
+
 #default behaviours
 alias grep='grep --color=auto'
 alias df='df -h'
