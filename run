@@ -6,4 +6,4 @@ if ! type -p ansible-playbook &> /dev/null ; then
     sudo apt-get install -y ansible
 fi
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-ansible-playbook -K -i $DIR/hosts $DIR/site.yml
+ansible-playbook -K -i localhost, $DIR/site.yml
