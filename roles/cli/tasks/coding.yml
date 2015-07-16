@@ -7,6 +7,7 @@
     - git
     - httpie
     - jq
+    - ngrok-client
 
 - name: Install Python Tools
   apt: pkg={{ item }}
@@ -16,8 +17,19 @@
     - python-pip
     - python-dev
 
+- name: Pip Install Python Tools
+  pip: name={{ item }}
+  with_items:
+    - fabric
+
 - name: Install Android Tools
   apt: pkg={{ item }}
   with_items:
     - android-tools-adb
     - android-tools-fastboot
+
+- name: Install deps
+  apt: pkg={{ item }}
+  with_items:
+    - libxml2-dev
+    - libxslt1-dev
