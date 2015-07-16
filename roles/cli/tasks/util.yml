@@ -13,6 +13,12 @@
     - apt-file
     # network
     - ethtool
-    - nmap
     # disc encryption
     - encfs
+- name: Install Various CLI netsec Tools
+  apt: pkg={{ item }}
+  with_items:
+    - nmap
+    - libssl-dev
+    - libffi-dev
+    - dsniff
