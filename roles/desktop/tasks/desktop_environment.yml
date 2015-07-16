@@ -13,6 +13,8 @@
     - gstreamer0.10-alsa
     - ssh-askpass-gnome
     - parcellite
+- name: remove dunst (installed by i3)
+  apt: pkg=dunst state=absent purge=yes
 
 - name: set default terminal (gnome-terminal)
   alternatives: name=x-terminal-emulator path=/usr/bin/gnome-terminal
