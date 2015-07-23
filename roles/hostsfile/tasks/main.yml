@@ -6,7 +6,6 @@
   when: made_hosts_d|changed
 
 - include: 'adblock.yml'
-- include: 'work.yml' 
 
 - name: Combine host files
   assemble: src=/etc/hosts.d dest=/etc/hosts backup=yes mode=644
