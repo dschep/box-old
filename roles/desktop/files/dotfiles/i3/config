@@ -179,7 +179,7 @@ exec --no-startup-id i3-msg 'workspace number $WS9; append_layout /home/dschep/.
 
 exec firefox-mozilla
 exec chromium-browser
-exec chromium-browser --user-data-dir=/home/dschep/.config/chromium-dev
+exec chromium-browser
 
 exec gnome-terminal
 exec gnome-terminal

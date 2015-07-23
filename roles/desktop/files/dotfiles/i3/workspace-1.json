@@ -13,8 +13,8 @@
     "percent": 1,
     "swallows": [
        {
-       // "class": "^Chromium\\-browser$",
-       "instance": "^Chromium\\-browser\\ \\(\\/home\\/dschep\\/\\.config\\/chromium\\-dev\\)$"
+          "class": "^Chromium\\-browser$"
+       // "instance": "^Chromium\\-browser\\ \\(\\/home\\/dschep\\/\\.config\\/chromium\\-dev\\)$"
        // "title": "^New\\ Tab\\ \\-\\ Chromium$",
        // "transient_for": "^$",
        // "window_role": "^browser$"
