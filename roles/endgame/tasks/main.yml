@@ -14,6 +14,8 @@
   lineinfile: dest=/etc/avahi/avahi-daemon.conf line="domain-name=avahi" insertafter="#domain-name"
 - name: change DNS resolution order to work with openconnect
   lineinfile: "dest=/etc/avahi/avahi-daemon.conf line='hosts: files dns mdns4_minimal' regexp='^hosts:\\s*files\\s+mdns.*$'"
+- name: Disable DNSMasq
+  lineinfile: dest=/etc/NetworkManager/NetworkManager.conf line="#dns=dnsmasq" regexp="^dns=dnsmasq$"
 
 - name: disable error reporting
   service: name={{ item }} enabled=no state=stopped
