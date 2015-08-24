@@ -1,7 +1,11 @@
-- name: Install VM Tools
-  apt: pkg={{ item }}
-  with_items:
-    - virtualbox
+- name: Configure the Oracle APT key
+  apt_key: url=https://www.virtualbox.org/download/oracle_vbox.asc state=present
+
+- name: virtualbox
+  apt_repository: repo="deb http://download.virtualbox.org/virtualbox/debian {{ ansible_distribution_release }} contrib" state=present
+
+- name: Install VirtualBox
+  apt: pkg=virtualbox-5.0 state=present
 
 
 - name: Compute Vagrant latest version
