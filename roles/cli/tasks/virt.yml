@@ -2,4 +2,17 @@
   apt: pkg={{ item }}
   with_items:
     - virtualbox
-    - vagrant
+
+
+- name: Compute Vagrant latest version
+  sudo: no
+  shell: wget -qO - https://dl.bintray.com/mitchellh/vagrant/|sed -n 's/.*href=\"\([^"]*\).*/\1/p'|grep x86_64\.deb|tail -1|cut -d'%' -f2
+  register: vagrant_file_name
+
+- name: Download Vagrant latest version
+  sudo: no
+  get_url: url="https://dl.bintray.com/mitchellh/vagrant/{{ vagrant_file_name.stdout }}" dest="/tmp/{{ vagrant_file_name.stdout }}"
+
+- name: Install Vagrant latest version
+  sudo: yes
+  apt: deb='/tmp/{{ vagrant_file_name.stdout }}' state=present
