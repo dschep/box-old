@@ -102,7 +102,7 @@ set $WS4 4
 set $WS5 5
 set $WS6 6
 set $WS7 7:<span color="yellow" font_weight="bold">comms</span>
-set $WS8 8:<span color="blue" font_weight="bold">work</span>
+set $WS8 8
 set $WS9 9:<span color="orange" font_weight="bold">personal</span>
 set $WS10 10
 
@@ -174,12 +174,10 @@ exec --no-startup-id i3-msg 'workspace number 5' # just bc otherwise $WS1 is jus
 exec --no-startup-id i3-msg 'workspace number $WS1; append_layout /home/dschep/.i3/workspace-1.json'
 exec --no-startup-id i3-msg 'workspace number $WS2; append_layout /home/dschep/.i3/workspace-2.json'
 exec --no-startup-id i3-msg 'workspace number $WS7; append_layout /home/dschep/.i3/workspace-7.json'
-exec --no-startup-id i3-msg 'workspace number $WS8; append_layout /home/dschep/.i3/workspace-8.json'
 exec --no-startup-id i3-msg 'workspace number $WS9; append_layout /home/dschep/.i3/workspace-9.json'
 
 
 exec firefox-mozilla
-exec chromium-browser
 exec chromium-browser
 
 exec gnome-terminal
@@ -193,3 +191,7 @@ exec blueman-applet
 exec nm-applet
 exec xfce4-power-manager
 exec parcellite
+
+exec gajim
+exec thunderbird
+exec chromium-browser --app=https://gabby.endgames.local/chat

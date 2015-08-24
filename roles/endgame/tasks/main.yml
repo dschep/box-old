@@ -1,8 +1,3 @@
-- name: hipchat repo
-  apt_repository: repo='deb http://downloads.hipchat.com/linux/apt stable main'
-- name: hipchat signing key
-  apt_key: url=https://www.hipchat.com/keys/hipchat-linux.key state=present
-  register: hipchat_key
 - name: update package cache
   apt: update_cache=yes
   when: hipchat_key|changed
@@ -10,9 +5,8 @@
 - name: install email, chat & vpn
   apt: pkg={{ item }} update_cache=yes
   with_items:
-    - evolution
-    - evolution-ews
-    - hipchat
+    - thunderbird
+    - gajim
     - network-manager-openconnect-gnome
     - openconnect
 
