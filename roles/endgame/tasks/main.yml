@@ -22,3 +22,8 @@
   with_items:
       - apport
       - whoopsie
+
+- name: install dev pkgs..
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+    - protobuf-compiler
