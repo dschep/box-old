@@ -190,6 +190,8 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 " ignore pyc
 set wildignore+=*.pyc
+let NERDTreeIgnore = ['\.pyc$']
+
 
 
 """
