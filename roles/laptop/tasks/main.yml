@@ -1,11 +1,3 @@
-- name: Install autorandr
-  get_url: url=https://raw.githubusercontent.com/wertarbyte/autorandr/4f5e2401efc1f20b3b8ce444b29d9e84cab35433/autorandr dest=/usr/bin/autorandr mode=755
-
-- name: Copy autorandr udev hook
-  copy: src=98-autorandr.rules dest=/etc/udev/rules.d/98-autorandr.rules mode=644
-  notify:
-    - reload udev rules
-
 - name: Setup power.d cpufreq hook
   copy: src=cpufreq dest=/etc/pm/power.d/cpufreq mode=755
 
