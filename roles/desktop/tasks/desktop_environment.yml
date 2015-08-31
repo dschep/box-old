@@ -22,16 +22,13 @@
 - name: ensure user font dir
   sudo: no
   file: path=~/.fonts state=directory
-- name: install Source Code Pro font
+- name: install Hack font
   sudo: no
   copy: src=fonts/{{ item }} dest=~/.fonts/{{ item }}
   with_items:
-    - SourceCodePro-Black.otf
-    - SourceCodePro-Bold.otf
-    - SourceCodePro-ExtraLight.otf
-    - SourceCodePro-Light.otf
-    - SourceCodePro-Medium.otf
-    - SourceCodePro-Regular.otf
-    - SourceCodePro-Semibold.otf
+    - Hack-BoldOblique.otf
+    - Hack-Bold.otf
+    - Hack-RegularOblique.otf
+    - Hack-Regular.otf
   notify:
     - rebuild font cache
