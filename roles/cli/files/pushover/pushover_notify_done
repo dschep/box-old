@@ -1,0 +1,7 @@
+start=$(date +%s)
+"$@"
+ret=$( [ $? -eq 0 ] && echo succeeded || echo failed )
+end=$(date +%s)
+durat=$(echo "($end - $start) / 60" | bc)
+
+pushover "'$*' $ret in $durat min"
