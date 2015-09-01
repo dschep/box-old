@@ -22,3 +22,6 @@
     - libssl-dev
     - libffi-dev
     - dsniff
+
+- name: install custom pushover util
+  copy: src=pushover/pushover dest=/usr/bin/pushover
