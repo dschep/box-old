@@ -194,4 +194,4 @@ exec parcellite
 
 exec gajim
 exec thunderbird
-exec chromium-browser --app=https://gabby.endgames.local/chat
+exec chromium-browser --app=https://hipchat.eginternal.com/chat
