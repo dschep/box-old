@@ -21,6 +21,7 @@
   pip: name={{ item }}
   with_items:
     - fabric
+    - pex
 
 - name: Install Android Tools
   apt: pkg={{ item }}
