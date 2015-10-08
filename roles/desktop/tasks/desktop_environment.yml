@@ -13,6 +13,8 @@
     - gstreamer0.10-alsa
     - ssh-askpass-gnome
     - parcellite
+    - ttf-ancient-fonts
+      # https://gist.github.com/robotslave/4633393
 - name: remove dunst (installed by i3)
   apt: pkg=dunst state=absent purge=yes
 
