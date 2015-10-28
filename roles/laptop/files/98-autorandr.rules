@@ -1,0 +1,2 @@
+#  detect monitor [un]plug events, and call autorandr
+SUBSYSTEM=="drm", ACTION=="change", RUN+="/bin/bash -c 'DISPLAY=:0 sudo -u $(who|sed -nre s/\(.*\)\\s:0.*/\\1/p) /usr/bin/autorandr -c'"
