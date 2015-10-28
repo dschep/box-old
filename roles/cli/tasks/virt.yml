@@ -10,7 +10,7 @@
 
 - name: Compute Vagrant latest version
   sudo: no
-  shell: wget -qO - https://dl.bintray.com/mitchellh/vagrant/|sed -n 's/.*href=\"\([^"]*\).*/\1/p'|grep x86_64\.deb|tail -1|cut -d'%' -f2
+  shell: wget -qO - https://dl.bintray.com/mitchellh/vagrant/|sed -n 's/.*href=\"\([^"]*\).*/\1/p'|grep x86_64\.deb|tail -1|cut -d':' -f2
   register: vagrant_file_name
 
 - name: Download Vagrant latest version
