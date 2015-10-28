@@ -192,6 +192,5 @@ exec nm-applet
 exec xfce4-power-manager
 exec parcellite
 
-exec gajim
 exec thunderbird
-exec chromium-browser --app=https://hipchat.eginternal.com/chat
+exec hipchat
