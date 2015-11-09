@@ -1,3 +1,6 @@
+- name: Add Git PPA
+  apt_repository: repo='ppa:git-core/ppa'
+
 - name: Install CLI Editors/Seach/VCS/Diff Tools
   apt: pkg={{ item }}
   with_items:
