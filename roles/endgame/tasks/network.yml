@@ -1,0 +1,2 @@
+- name: Change Avahi domain (Endgame uses .local)
+  lineinfile: dest=/etc/avahi/avahi-daemon.conf line="domain-name=avahi" insertafter="#domain-name"

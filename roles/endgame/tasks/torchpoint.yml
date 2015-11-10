@@ -1,0 +1,2 @@
+- name: Disable DNSMasq for Torchpoint's Consul to work
+  lineinfile: dest=/etc/NetworkManager/NetworkManager.conf line="#dns=dnsmasq" regexp="^dns=dnsmasq$"

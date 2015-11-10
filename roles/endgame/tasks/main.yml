@@ -1,25 +1,4 @@
-- name: install email, chat & vpn
-  apt: pkg={{ item }} update_cache=yes
-  with_items:
-    - thunderbird
-    - gajim
-    - network-manager-openconnect-gnome
-    - openconnect
-
-- name: change avahi domain
-  lineinfile: dest=/etc/avahi/avahi-daemon.conf line="domain-name=avahi" insertafter="#domain-name"
-- name: change DNS resolution order to work with openconnect
-  lineinfile: "dest=/etc/avahi/avahi-daemon.conf line='hosts: files dns mdns4_minimal' regexp='^hosts:\\s*files\\s+mdns.*$'"
-- name: Disable DNSMasq
-  lineinfile: dest=/etc/NetworkManager/NetworkManager.conf line="#dns=dnsmasq" regexp="^dns=dnsmasq$"
-
-- name: disable error reporting
-  service: name={{ item }} enabled=no state=stopped
-  with_items:
-      - apport
-      - whoopsie
-
-- name: install dev pkgs..
-  apt: pkg={{ item }} update_cache=yes
-  with_items:
-    - protobuf-compiler
+- include: "torchpoint.yml"
+- include: "mercury.yml"
+- include: "vpn.yml"
+- include: "desktop.yml"

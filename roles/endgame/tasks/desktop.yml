@@ -1,0 +1,9 @@
+- name: Add HipChat Repo
+  apt_repository: repo="deb http://hipchat.eginternal.com/clients/linux/apt stable main"
+
+- name: install email, chat & vpn
+  apt: pkg={{ item }} update_cache=yes
+  with_items:
+    - thunderbird
+    - hipchat
+    - network-manager-openconnect-gnome
