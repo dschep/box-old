@@ -7,3 +7,7 @@
     - thunderbird
     - hipchat
     - network-manager-openconnect-gnome
+
+- name: install extra i3 startup
+  copy: src=extra-i3-startup dest=/usr/bin/extra-i3-startup mode=755
+
