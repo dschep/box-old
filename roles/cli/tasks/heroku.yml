@@ -2,7 +2,7 @@
   apt_key: url=https://toolbelt.heroku.com/apt/release.key validate_certs=no
 - name: Install Heroku Repo
   apt_repository: repo='deb http://toolbelt.heroku.com/ubuntu ./'
-- name: Install Deploy Tools
+- name: Install Heroku Toolbelt
   apt: pkg={{ item }}
   with_items:
     - heroku-toolbelt
