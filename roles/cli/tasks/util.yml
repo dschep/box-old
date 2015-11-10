@@ -26,7 +26,7 @@
 - name: install custom pushover util
   copy: src=pushover/pushover dest=/usr/bin/pushover
 
-- name: installdocument creation tools (pandoc & pdflatex & fonts)
+- name: install document creation tools (pandoc & pdflatex & fonts)
   apt: pkg={{ item }}
   with_items:
     - pandoc

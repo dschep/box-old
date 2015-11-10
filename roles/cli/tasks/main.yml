@@ -1,6 +1,7 @@
 - include: dotfiles.yml
 - include: coding.yml
-- include: deployment.yml
+- include: heroku.yml
 - include: util.yml
+- include: docker.yml
 - include: virt.yml
   when: ansible_virtualization_role == 'host'

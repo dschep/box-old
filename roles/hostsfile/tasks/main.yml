@@ -5,7 +5,5 @@
   copy: src=/etc/hosts dest=/etc/hosts.d/default
   when: made_hosts_d|changed
 
-- include: 'adblock.yml'
-
 - name: Combine host files
   assemble: src=/etc/hosts.d dest=/etc/hosts backup=yes mode=644

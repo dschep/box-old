@@ -22,7 +22,7 @@
 - include: mozilla.yml ff_dl_product=firefox-aurora-latest ff_dest=/opt/firefox-de ff_link_name=firefox-developer-edition
 
 - name: set default browser (firefox-mozilla)
-  alternatives: name=x-www-browser path=/usr/bin/firefox-mozilla
+  alternatives: name=x-www-browser path=/usr/bin/chromium-browser
 
 
 - name: media repo (FF h.264 support)

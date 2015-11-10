@@ -1,0 +1,13 @@
+- name: Add HipChat Repo
+  apt_repository: repo="deb http://hipchat.eginternal.com/clients/linux/apt stable main" update_cache=yes
+
+- name: install email, chat & vpn
+  apt: pkg={{ item }}
+  with_items:
+    - thunderbird
+    - hipchat
+    - network-manager-openconnect-gnome
+
+- name: install extra i3 startup
+  copy: src=extra-i3-startup dest=/usr/bin/extra-i3-startup mode=755
+

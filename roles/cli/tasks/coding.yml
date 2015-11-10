@@ -25,6 +25,7 @@
   with_items:
     - fabric
     - pex
+    - httpie
 
 - name: Install Android Tools
   apt: pkg={{ item }}
@@ -32,8 +33,9 @@
     - android-tools-adb
     - android-tools-fastboot
 
-- name: Install deps
+- name: Install common build deps
   apt: pkg={{ item }}
   with_items:
     - libxml2-dev
     - libxslt1-dev
+    - libjpeg-dev

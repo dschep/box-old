@@ -178,7 +178,6 @@ exec --no-startup-id i3-msg 'workspace number $WS9; append_layout /home/dschep/.
 
 exec firefox-mozilla
 exec chromium-browser
-exec chromium-browser
 
 exec gnome-terminal
 exec gnome-terminal
@@ -191,3 +190,5 @@ exec blueman-applet
 exec nm-applet
 exec xfce4-power-manager
 exec parcellite
+
+exec extra-i3-startup

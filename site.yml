@@ -8,4 +8,8 @@
     - desktop
     - laptop
     - hostsfile
-    - angstwad.docker_ubuntu
+- hosts: endgames
+  connection: local
+  sudo: yes
+  roles:
+    - endgame
