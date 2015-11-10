@@ -1,8 +1,8 @@
 - name: Add HipChat Repo
-  apt_repository: repo="deb http://hipchat.eginternal.com/clients/linux/apt stable main"
+  apt_repository: repo="deb http://hipchat.eginternal.com/clients/linux/apt stable main" update_cache=yes
 
 - name: install email, chat & vpn
-  apt: pkg={{ item }} update_cache=yes
+  apt: pkg={{ item }}
   with_items:
     - thunderbird
     - hipchat

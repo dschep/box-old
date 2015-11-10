@@ -1,5 +1,5 @@
 - name: Install OpenConnect client
-  apt: pkg=openconnect update_cache=yes
+  apt: pkg=openconnect
 
 - name: Change DNS resolution order to work with OpenConnect
   lineinfile: "dest=/etc/avahi/avahi-daemon.conf line='hosts: files dns mdns4_minimal' regexp='^hosts:\\s*files\\s+mdns.*$'"
