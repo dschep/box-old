@@ -37,3 +37,4 @@
   with_items:
     - libxml2-dev
     - libxslt1-dev
+    - libjpeg-dev
