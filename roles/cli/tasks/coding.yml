@@ -32,7 +32,7 @@
     - android-tools-adb
     - android-tools-fastboot
 
-- name: Install deps
+- name: Install common build deps
   apt: pkg={{ item }}
   with_items:
     - libxml2-dev

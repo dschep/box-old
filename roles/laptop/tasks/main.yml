@@ -42,7 +42,7 @@
     - acpi
     - powertop
 
-- name: Install VPN frontend
+- name: Install OpenVPN frontend
   apt: pkg={{ item }}
   with_items:
     - network-manager-openvpn
