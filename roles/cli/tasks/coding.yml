@@ -8,7 +8,6 @@
     - ack-grep
     - silversearcher-ag
     - git
-    - httpie
     - jq
     - ngrok-client
 
@@ -25,6 +24,7 @@
   with_items:
     - fabric
     - pex
+    - httpie
 
 - name: Install Android Tools
   apt: pkg={{ item }}
