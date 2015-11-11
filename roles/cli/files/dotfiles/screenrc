@@ -23,3 +23,5 @@ defbce on    # use current bg color for erased chars
 #termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 #termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
 defhstatus "screen ^E (^Et) | $USER@^EH"
+
+mousetrack on
