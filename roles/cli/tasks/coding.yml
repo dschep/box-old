@@ -4,6 +4,7 @@
 - name: Install CLI Editors/Seach/VCS/Diff Tools
   apt: pkg={{ item }}
   with_items:
+    - screen
     - vim
     - ack-grep
     - silversearcher-ag

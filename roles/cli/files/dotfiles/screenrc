@@ -1,0 +1,25 @@
+vbell off
+startup_message off
+
+bindkey "^j" prev
+bindkey "^k" next
+
+bind j focus down
+bind k focus up
+bind h focus top
+bind l focus bottom
+
+# default on gray
+#caption always "%{= Kd}%-w%{+bu}%n %t%{-}%+w %-="
+# default on gray (on blue for active)
+caption always "%{= Kd}%-w%{+b Bd}%n %t%{-}%+w %-="
+
+
+#term screen-256colors
+attrcolor b ".I"    # allow bold colors - necessary for some reason
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'   # tell screen how to set colors. AB = background, AF=foreground
+defbce on    # use current bg color for erased chars
+
+#termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+#termcapinfo xterm*|rxvt*|kterm*|Eterm* ti@:te@
+defhstatus "screen ^E (^Et) | $USER@^EH"

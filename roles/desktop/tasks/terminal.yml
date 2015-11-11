@@ -20,9 +20,9 @@
   gconftool-2: key={{  item.key }} string={{ item.string|default(omit) }} bool={{ item.bool|default(omit) }}
   with_items:
     - key: /apps/gnome-terminal/keybindings/next_tab
-      string: "<Ctrl>k"
+      string: "<Ctrl><Shift>k"
     - key: /apps/gnome-terminal/keybindings/prev_tab
-      string: "<Ctrl>j"
+      string: "<Ctrl><Shift>j"
 
 - name: use Hack (gnome-terminal)
   sudo: no
