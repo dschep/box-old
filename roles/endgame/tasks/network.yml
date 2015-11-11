@@ -1,4 +1,4 @@
-- name: Check if NetworkManager is installed
+- name: Check if avahi is installed
   shell: 'ls /etc/avahi/avahi-daemon.conf'
   register: avahi
   ignore_errors: True
