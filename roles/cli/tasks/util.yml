@@ -24,7 +24,7 @@
     - dsniff
 
 - name: install custom pushover util
-  copy: src=pushover/pushover dest=/usr/bin/pushover
+  copy: src=pushover/pushover dest=/usr/bin/pushover mode=755
 
 - name: install document creation tools (pandoc & pdflatex & fonts)
   apt: pkg={{ item }}
