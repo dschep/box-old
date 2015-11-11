@@ -13,7 +13,10 @@
   apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main" update_cache=yes
 
 - name: Install Docker
-  apt: pkg=docker
+  apt: pkg={{ item }}
+  with_items:
+    - docker
+    - docker-engine
 
 - name: Install Docker Compose
   pip: name=docker-compose state=latest
