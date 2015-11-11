@@ -1,5 +1,5 @@
 - name: dotfiles
-  sudo: no
+  sudo_user: dschep
   copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
   with_items:
     - bashrc
