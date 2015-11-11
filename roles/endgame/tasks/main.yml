@@ -2,3 +2,4 @@
 - include: "mercury.yml"
 - include: "vpn.yml"
 - include: "desktop.yml"
+  when: "{{'DISPLAY' in ansible_env}}"
