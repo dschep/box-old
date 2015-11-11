@@ -8,7 +8,7 @@
     - cli
     - {role: desktop, when: "{{'DISPLAY' in ansible_env}}"}
     - {role: laptop, when: "{{'DISPLAY' in ansible_env}}"}
-    - {role: ssh, when: "{{'SSH_CONNECTION' in ansible_env}}"}
+    - ssh
     - hostsfile
 - hosts: endgames
   connection: local
