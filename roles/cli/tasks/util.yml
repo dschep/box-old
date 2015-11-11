@@ -5,7 +5,7 @@
     - dos2unix
     - inotify-tools
     # compression tools
-    - unrar
+    - unrar-free
     - p7zip-full
     - dtrx
     # system tools
