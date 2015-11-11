@@ -6,8 +6,8 @@
     - user
     - common
     - cli
-    - desktop
-    - laptop
+    - {role: desktop, when: ansible_env.DISPLAY}
+    - {role: laptop, when: ansible_env.DISPLAY}
     - hostsfile
 - hosts: endgames
   connection: local
