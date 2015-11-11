@@ -2,7 +2,7 @@
   user:
     name: dschep
     comment: "Daniel Schep"
-    group: dschep
+    shell: /bin/bash
     groups: adm,cdrom,sudo,dip,plugdev
     append: yes
     update_password: on_create
