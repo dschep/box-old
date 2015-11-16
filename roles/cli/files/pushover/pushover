@@ -1,16 +1,20 @@
 #!/bin/bash
 
-if [ "$1" == '--notify-done' ] ; then
+if [ `basename "$0"` == 'notify-done' ] || [ "$1" == '--notify-done' ] ; then
     start=$(date +%s)
 
-    "${@:2}"
+    [ `basename "$0"` == 'notify-done' ] && "${@:1}" || "${@:2}"
 
     ret=$( [ $? -eq 0 ] && echo succeeded || echo failed )
     end=$(date +%s)
 
     durat=$(echo "($end - $start) / 60" | bc)
 
-    msg="'${*:2}' $ret in $durat min"
+    if [ `basename "$0"` == 'notify-done' ] ; then
+        msg="'${*:1}' $ret in $durat min"
+    else
+        msg="'${*:2}' $ret in $durat min"
+    fi
 else
     msg="$*"
 fi
