@@ -13,7 +13,7 @@ syndaemon -i1 -k -d
 #synology-cloud-station start
 
 # touchpad options
-synclient TapButton1=0 TapButton2=0 TapButton3=0 HorizTwoFingerScroll=1 VertEdgeScroll=0
+synclient TapButton1=0 TapButton2=0 TapButton3=0 HorizTwoFingerScroll=1 VertEdgeScroll=0 ClickPad=1
 
 # disable trackpoint
 xinput set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" 0
