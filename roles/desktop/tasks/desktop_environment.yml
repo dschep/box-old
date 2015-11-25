@@ -34,3 +34,7 @@
     - Hack-Regular.otf
   notify:
     - rebuild font cache
+
+- name: disable ctrl space ibus binding (Vim-CtrlSpace compatibility)
+  sudo_user: dschep
+  gsettings: schema=org.freedesktop.ibus.general.hotkey key=triggers string=[]
