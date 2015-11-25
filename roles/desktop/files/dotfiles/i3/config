@@ -172,18 +172,11 @@ bar {
 
 exec --no-startup-id i3-msg 'workspace number 5' # just bc otherwise $WS1 is just '1'
 exec --no-startup-id i3-msg 'workspace number $WS1; append_layout /home/dschep/.i3/workspace-1.json'
-exec --no-startup-id i3-msg 'workspace number $WS2; append_layout /home/dschep/.i3/workspace-2.json'
 exec --no-startup-id i3-msg 'workspace number $WS9; append_layout /home/dschep/.i3/workspace-9.json'
 
 
 exec firefox-mozilla
 exec chromium-browser
-
-exec gnome-terminal
-exec gnome-terminal
-exec gnome-terminal
-exec gnome-terminal
-exec gvim
 
 exec synology-cloud-station start
 exec blueman-applet
