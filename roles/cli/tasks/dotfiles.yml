@@ -10,3 +10,12 @@
     - gitignore
     - gitconfig
     - inputrc
+
+- name: Create Neovim config directory
+  sudo_user: dschep
+  file: path=/home/dschep/.config/nvim state=directory
+
+- name: Symlink NeoVim configuration
+  sudo_user: dschep
+  file: src="/home/dschep/.vimrc" dest=/home/dschep/.config/nvim/init.vim state=link
+
