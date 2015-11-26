@@ -3,4 +3,4 @@
 - include: util.yml
 - include: coding.yml
 - include: dotfiles.yml
-- include: terminal.yml
+#- include: terminal.yml

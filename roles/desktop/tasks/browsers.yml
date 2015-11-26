@@ -25,11 +25,10 @@
   alternatives: name=x-www-browser path=/usr/bin/chromium-browser
 
 
-- name: media repo (FF h.264 support)
-  apt_repository: repo='ppa:mc3man/trusty-media'
-
-- name: Install ff h.264 support
-  apt: pkg={{ item }}
-  with_items:
-    - gstreamer0.10-ffmpeg
-    - ubuntu-restricted-extras
+#- name: media repo (FF h.264 support)
+#  apt_repository: repo='ppa:mc4man/trusty-media'
+#
+#- name: Install ff h.264 support
+#  apt: pkg={{ item }}
+#  with_items    - gstreamer0.10-ffmpeg
+#    - ubuntu-restricted-extras

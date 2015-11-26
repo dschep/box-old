@@ -1,25 +1,19 @@
-- name: add i3 repo
-  apt_repository: repo='deb http://debian.sur5r.net/i3/ trusty universe' update_cache=yes
-- name: install i3 repo key
-  apt: pkg=sur5r-keyring force=yes
-- name: Install Desktop Environment
-  apt: pkg={{ item }}
-  with_items:
-    - lubuntu-desktop
-    - i3
-    - gnome-terminal
-    - xfce4-volumed
-    - xfce4-mixer
-    - gstreamer0.10-alsa
-    - ssh-askpass-gnome
-    - parcellite
-    - ttf-ancient-fonts
-      # https://gist.github.com/robotslave/4633393
-- name: remove dunst (installed by i3)
-  apt: pkg=dunst state=absent purge=yes
-
-- name: set default terminal (gnome-terminal)
-  alternatives: name=x-terminal-emulator path=/usr/bin/gnome-terminal
+#- name: Install Desktop Environment
+#  apt: pkg={{ item }}
+#  with_items:
+#    - gnome-terminal
+#    - xfce4-volumed
+#    - xfce4-mixer
+#    - gstreamer0.10-alsa
+#    - ssh-askpass-gnome
+#    - parcellite
+#    - ttf-ancient-fonts
+#      # https://gist.github.com/robotslave/4633393
+#- name: remove dunst (installed by i3)
+#  apt: pkg=dunst state=absent purge=yes
+#
+#- name: set default terminal (gnome-terminal)
+#  alternatives: name=x-terminal-emulator path=/usr/bin/gnome-terminal
 
 - name: ensure user font dir
   sudo: no
