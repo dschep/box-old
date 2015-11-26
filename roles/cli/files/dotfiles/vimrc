@@ -218,6 +218,6 @@ set foldlevel=99
 """
 """ NeoVim options for moving when in a :terminal
 """
-if has("neovim")
+if has("nvim")
   tnoremap <Esc><Esc> <C-\><C-n>
 endif
