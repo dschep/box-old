@@ -1,0 +1,98 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# (c) 2015, Daniel Schep <dschep@gmail.com>
+#
+# This file is part of Ansible
+#
+# Ansible is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
+
+from ansible.constants import mk_boolean
+from ansible.module_utils.basic import *
+
+DOCUMENTATION = '''
+---
+module: xfconf
+version_added: "post 1.7.1"
+author: Daniel Schep
+short_description: alter xfconf controlled settings.
+description:
+   - Set the value of a xfconf controlled setting using a channel, property and
+   a value
+options:
+  channel:
+    description:
+      - The channel where the property of the settings can be found.
+    required: true
+  property:
+    description:
+      - The property of the xfconf setting to change.
+    required: true
+  vlaue:
+    description:
+      - The value to set the property to.
+    required: false
+'''
+
+EXAMPLES = '''
+- xfconf: channel=xfce4-propertyboard-shortcuts property="/xfwm4/custom/<Shift><Alt>c" value="close_window_property"
+'''
+
+# ===========================================
+# Module code.
+#
+
+
+def _set_value(module, channel, property, value):
+    ''' Set value of setting, under `property` in `channel`, using gsettings to `value`.'''
+    return module.run_command(" ".join(['xfconf -c {} -p {} -s {}'.format(
+      channel, property, value)]))
+
+
+def _get_value(module, channel, property):
+    ''' Return value of setting, under `property`, from xfconf'''
+    return module.run_command(" ".join(['xfconf -c {} -p {}'.format(
+      channel, property, value)]))
+
+
+def main():
+
+    module = AnsibleModule(
+        argument_spec={
+            'property': {'required': True, 'type': 'str'},
+            'channel': {'required': True, 'type': 'str'},
+            'value': {'required': True, 'type': 'str'},
+        },
+        supports_check_mode=True
+    )
+
+    property = module.params['property']
+    channel = module.params['channel']
+    value = module.params['value']
+
+    old_value = _get_value(module, channel, property)
+
+    changed = old_value != value
+
+    if changed and not module.check_mode:
+        _set_value(module, channel, property, value)
+
+    module.exit_json(
+        changed=changed,
+        property=property,
+        value=value,
+        old_value=old_value
+    )
+
+main()
