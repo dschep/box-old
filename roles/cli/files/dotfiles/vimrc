@@ -35,6 +35,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ciaranm/detectindent'
+Plugin 'fholgado/minibufexpl.vim'
 Plugin 'klen/python-mode'
 
 call vundle#end()
@@ -66,6 +67,8 @@ if has("unix")
 elseif has("win32")
     nnoremap <F5> :w\|!%<CR>
 endif
+nnoremap <silent><C-p> :CtrlSpace O<CR>
+
 
 
 """
@@ -162,17 +165,6 @@ endif
 set guifont=Hack
 
 
-"""
-""" plugin options
-"""
-" Don't let ctrl-p find version control root (bc of socialcode's many repos)
-let g:ctrlp_working_path_mode = ''
-" ctrl-p save cache
-let g:ctrlp_clear_cache_on_exit = 0
-" ctrl-p much smaller max depth
-let g:ctrlp_max_depth = 10
-" ctrl-p <c-y> opens in current window
-let g:ctrlp_open_new_file = 'r'
 " auto detect indent type
 autocmd BufReadPost * :DetectIndent
 " prefer spaces

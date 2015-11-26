@@ -3,4 +3,3 @@
   copy: src=dotfiles/{{ item }} dest=~/.{{ item }}
   with_items:
     - config/parcellite/
-    - config/xfce4/terminal/

@@ -1,0 +1,17 @@
+# basics
+vbell off
+startup_message off
+
+# keybindings
+bindkey "^j" prev
+bindkey "^k" next
+bind j focus down
+bind k focus up
+bind h focus top
+bind l focus bottom
+
+# red BG on current window and show all windows
+caption always "%-w%{+ .r}%n %t%{+ .d}%+w "
+
+# mouse support
+mousetrack on

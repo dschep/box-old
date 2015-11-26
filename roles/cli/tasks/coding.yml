@@ -1,13 +1,8 @@
-#- name: Add Git PPA
-#  apt_repository: repo='ppa:git-core/ppa'
-#
-#- name: Add Git PPA
-#  apt_repository: repo='ppa:neovim-ppa/unstable'
 
 - name: Install CLI Editors/Seach/VCS/Diff Tools
   apt: pkg={{ item }}
   with_items:
-    #- neovim
+    - screen
     - vim
     - ack-grep
     - silversearcher-ag
@@ -30,7 +25,6 @@
     - fabric
     - pex
     - httpie
-    - neovim
 
 - name: Install Android Tools
   apt: pkg={{ item }}
