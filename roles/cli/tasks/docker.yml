@@ -10,12 +10,11 @@
   when: add_repository_key|failed
 
 - name: Add Docker repository
-  apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main" update_cache=yes
+  apt_repository: repo="deb https://apt.dockerproject.org/repo debian-stretch main" update_cache=yes
 
 - name: Install Docker
   apt: pkg={{ item }}
   with_items:
-    - docker
     - docker-engine
 
 - name: Install Docker Compose
