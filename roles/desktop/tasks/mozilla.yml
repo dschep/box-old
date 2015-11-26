@@ -20,4 +20,4 @@
   when: ff_install.changed
 
 - name: Make Firefox symlink (/usr/bin/{{ ff_link_name }})
-  file: src={{ ff_dest }}/firefox/firefox dest=/usr/bin/{{ ff_link_name }} state=link
+  file: src={{ ff_dest }}/firefox/firefox dest=/usr/bin/{{ ff_link_name }} state=link force=yes

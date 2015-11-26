@@ -6,6 +6,8 @@
   notify:
     - reload udev rules
 
+- file: path=/etc/pm/power.d state=directory
+
 - name: Setup power.d cpufreq hook
   copy: src=cpufreq dest=/etc/pm/power.d/cpufreq mode=755
 

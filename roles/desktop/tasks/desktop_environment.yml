@@ -32,3 +32,20 @@
 - name: disable ctrl space ibus binding (Vim-CtrlSpace compatibility)
   sudo_user: dschep
   gsettings: schema=org.freedesktop.ibus.general.hotkey key=triggers string=[]
+
+- name: keyboard shortcuts
+  sudo_user: dschep
+  xfconf: channel=xfce4-keyboard-shortcuts property="{{item['prop']}}" value="{{item['value']}}"
+  with_items: 
+    - {prop: "/xfwm4/custom/<Alt>1", value: workspace_1_key}
+    - {prop: "/xfwm4/custom/<Alt>2", value: workspace_2_key}
+    - {prop: "/xfwm4/custom/<Alt>3", value: workspace_3_key}
+    - {prop: "/xfwm4/custom/<Alt>4", value: workspace_4_key}
+    - {prop: "/xfwm4/custom/<Alt>5", value: workspace_5_key}
+    - {prop: "/xfwm4/custom/<Alt>6", value: workspace_6_key}
+    - {prop: "/xfwm4/custom/<Alt>7", value: workspace_7_key}
+    - {prop: "/xfwm4/custom/<Alt>8", value: workspace_8_key}
+    - {prop: "/xfwm4/custom/<Alt>9", value: workspace_9_key}
+    - {prop: "/xfwm4/custom/<Shift><Alt>1", value: move_window_workspace_1_key}
+    - {prop: "/xfwm4/custom/<Shift><Alt>c", value: close_window_key}
+    - {prop: "/commands/custom/<Alt>p", value: xfce4-appfinder}

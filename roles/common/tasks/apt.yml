@@ -1,13 +1,11 @@
-- name: Install apt_repository dep
+- name: Configure Apt for Debian Sid
+  copy: src=sources.list dest=/etc/apt/sources.list
+
+- name: Install apt_repository dep and HTTPS transport
   apt: pkg={{ item }}
   with_items:
     - python-pycurl
-
-- name: Enable Parter Repo
-  apt_repository: repo='deb http://archive.canonical.com/ubuntu trusty partner'
-
-- name: Enable Extra Repo
-  apt_repository: repo='deb http://extras.ubuntu.com/ubuntu trusty main'
+    - apt-transport-https
 
 - name: Update package cache
   apt: update_cache=yes
