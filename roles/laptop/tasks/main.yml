@@ -43,6 +43,7 @@
   with_items:
     - acpi
     - powertop
+    - firmware-linux-nonfree
 
 - name: Install OpenVPN frontend
   apt: pkg={{ item }}
